@@ -21,7 +21,7 @@
   },
   "scripts": {
     "start": "react-scripts start",
-    "test": "jest",
+    "test": "jest --env=jsdom",
     "lint": "eslint . --ext .js,.jsx,.ts,.tsx",
     "relay": "relay-compiler --src ./src --schema ./src/data/schema.graphql --language typescript"
   },
@@ -44,6 +44,8 @@
     ]
   },
   "devDependencies": {
+    "@babel/preset-env": "^7.17.10",
+    "@babel/preset-react": "^7.16.7",
     "@types/react-relay": "^13.0.2",
     "@types/relay-runtime": "^13.0.3",
     "babel-plugin-relay": "^13.2.0",

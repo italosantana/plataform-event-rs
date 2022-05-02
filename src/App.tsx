@@ -1,5 +1,4 @@
 import { Home } from './pages/home';
-import './App.css';
 import { RelayEnvironmentProvider } from 'react-relay';
 import RelayEnv from './services/RelayEnv';
 
