@@ -44,7 +44,7 @@
     ]
   },
   "devDependencies": {
-    "@babel/preset-env": "^7.17.10",
+    "@babel/preset-env": "^7.18.9",
     "@babel/preset-react": "^7.16.7",
     "@types/react-relay": "^13.0.2",
     "@types/relay-runtime": "^13.0.3",
