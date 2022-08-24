@@ -7,9 +7,12 @@
     "@testing-library/react": "^13.1.1",
     "@testing-library/user-event": "^13.5.0",
     "@types/jest": "^27.4.1",
-    "@types/node": "^16.11.33",
     "@types/react": "^18.0.8",
     "@types/react-dom": "^18.0.3",
+    "apollo-server": "^3.7.0",
+    "fs": "^0.0.1-security",
+    "graphql-relay": "^0.10.0",
+    "path": "^0.12.7",
     "react": "^18.1.0",
     "react-dom": "^18.1.0",
     "react-relay": "^13.2.0",
@@ -17,13 +20,15 @@
     "relay": "^0.8.0-1",
     "relay-runtime": "^13.2.0",
     "typescript": "^4.6.4",
+    "uuidv4": "^6.2.13",
     "web-vitals": "^2.1.4"
   },
   "scripts": {
     "start": "react-scripts start",
     "test": "jest --env=jsdom",
     "lint": "eslint . --ext .js,.jsx,.ts,.tsx",
-    "relay": "relay-compiler --src ./src --schema ./src/data/schema.graphql --language typescript"
+    "relay": "relay-compiler --src ./src --schema ./src/data/schema.graphql --language typescript",
+    "dev:server": "tsnd --transpile-only --ignore-watch node_modules src/server.ts"
   },
   "eslintConfig": {
     "extends": [
@@ -46,12 +51,14 @@
   "devDependencies": {
     "@babel/preset-env": "^7.17.10",
     "@babel/preset-react": "^7.16.7",
+    "@types/node": "^18.7.13",
     "@types/react-relay": "^13.0.2",
     "@types/relay-runtime": "^13.0.3",
     "babel-plugin-relay": "^13.2.0",
     "graphql": "^16.4.0",
     "relay-compiler": "^13.2.0",
     "relay-compiler-language-typescript": "13.0.10",
-    "relay-config": "^12.0.1"
+    "relay-config": "^12.0.1",
+    "ts-node-dev": "^1.1.8"
   }
 }
