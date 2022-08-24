@@ -1,4 +1,5 @@
 import { Box, Input, TextField, Typography } from "@mui/material"
+import theme from "../../../styles/theme"
 import { GreenButton } from "./Button/Button"
 
 
@@ -13,6 +14,7 @@ export const LoginSection = () => {
                 height: "100vh",
                 maxWidth: "100vw",
 
+
             }}
         >
             <Box
@@ -25,6 +27,13 @@ export const LoginSection = () => {
                     display: "flex",
                     // justifyContent: 'center',
                     flexDirection: "column",
+                    [theme.breakpoints.down('mobile')]: {
+                        maxWidth: "88vw",
+                        button: {
+                            maxWidth: "70vw",
+                            mb: 2,
+                        }
+                    }
                 }}
             >
                 <Typography
@@ -45,19 +54,24 @@ export const LoginSection = () => {
                         justifyContent: 'center',
                         flexDirection: "column",
                         alignItems: "center",
+                        [theme.breakpoints.down('mobile')]: {
+                            ".basic-input": {
+                                maxWidth: "70vw"
+                            },
+                        }
                     }}
                 >
                     <Input
                         sx={{ border: '1px solid #FFF', borderRadius: 1, color: '#8D8D99', height: "56px", width: "327px", pl: "27px" }}
                         disableUnderline
                         placeholder="Digite seu nome completo"
-                        id="basic-input"
+                        className="basic-input"
                     />
                     <Input
                         sx={{ border: '1px solid #FFF', borderRadius: 1, mt: '27px', mb: "24px", color: '#8D8D99', height: "56px", width: "327px", pl: "27px" }}
                         disableUnderline
                         placeholder="Digite seu email"
-                        id="basic-input"
+                        className="basic-input"
                     />
                 </Box>
                 {/* <TextField label="email" id="fullWidth" /> */}
