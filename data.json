@@ -1,0 +1,30 @@
+{
+    "posts": [
+      {
+        "id": "966122a8-ced6-49ad-9848-a3bbfd9dda50",
+        "title": "Um post",
+        "body": "Test"
+      },
+      {
+        "id": "966122a2-ced6-49ad-9848-a3bbfd9dda50",
+        "title": "Um post",
+        "body": "Test"
+      },
+      {
+        "id": "566122a8-ced6-49ad-9848-a3bbfd9dda50",
+        "title": "Um post",
+        "body": "Test"
+      },
+      {
+        "id": "966124a8-ced6-49ad-9848-a3bbfd9dda50",
+        "title": "Um post",
+        "body": "Test"
+      },
+      {
+        "id": "966121a8-ced6-49ad-9848-a3bbfd9dda50",
+        "title": "Um post",
+        "body": "Test"
+      }
+
+    ]
+  }
