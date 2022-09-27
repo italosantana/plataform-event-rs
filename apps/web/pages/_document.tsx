@@ -6,15 +6,13 @@ class MyDocument extends Document {
     render() {
         return (
             <Html style={{ scrollBehavior: 'smooth' }} lang="en">
-                <div>
-                    <Head>
-                        <meta name="description" content=" It's free! Create your events/meetups tech in our plataform." />
-                        <link rel="icon" href="/favicon.ico" />
-                        <link rel="preconnect" href="https://fonts.googleapis.com" />
-                        <link rel="preconnect" href="https://fonts.gstatic.com" />
-                        <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet" />
-                    </Head>
-                </div>
+                <Head>
+                    <meta name='description' content='Create your events/meetups tech in our plataform.' />
+                    <link rel="icon" href="/favicon.ico" />
+                    <link rel="preconnect" href="https://fonts.googleapis.com" />
+                    <link rel="preconnect" href="https://fonts.gstatic.com" />
+                    <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet" />
+                </Head>
                 <body>
                     <Main />
                     <NextScript />
