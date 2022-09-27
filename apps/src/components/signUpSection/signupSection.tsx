@@ -3,7 +3,7 @@ import theme from "../../../styles/theme"
 import { GreenButton } from "./Button/Button"
 
 
-export const LoginSection = () => {
+export const SignUpSection = () => {
     return (
         <Box
             sx={{
@@ -46,7 +46,7 @@ export const LoginSection = () => {
                         textAlign: "center",
                         m: '19px',
                     }}
-                >Acessar sua conta</Typography>
+                >Inscreva-se gratuitamente</Typography>
 
                 <Box
                     sx={{
@@ -75,7 +75,7 @@ export const LoginSection = () => {
                     />
                 </Box>
                 {/* <TextField label="email" id="fullWidth" /> */}
-                <GreenButton>ACESSAR</GreenButton>
+                <GreenButton>REGISTRE-SE</GreenButton>
             </Box>
         </Box>
     )
