@@ -1,8 +1,6 @@
 import type { NextPage } from 'next'
 import Document, { Html, Head, Main, NextScript } from 'next/document';
-// import Head from 'next/head'
 import Image from 'next/image'
-// import styles from '../styles/Home.module.css'
 
 class MyDocument extends Document {
     render() {
