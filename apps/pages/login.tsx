@@ -7,17 +7,17 @@ import { LoginSection } from '../src/components/LoginSection/LoginSection'
 
 import styles from '../styles/Home.module.css'
 
-const Home: NextPage = () => {
-  return (
-    <>
-      <Head>
-        <title>EventosTechBR | Home</title>
-      </Head>
-      <Container maxWidth="lg">
-        <LoginSection />
-      </Container>
-    </>
-  )
+const Login: NextPage = () => {
+    return (
+        <>
+            <Head>
+                <title>EventosTechBR | Login</title>
+            </Head>
+            <Container maxWidth="lg">
+                <LoginSection />
+            </Container>
+        </>
+    )
 }
 
-export default Home
+export default Login
