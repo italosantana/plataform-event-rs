@@ -1,12 +1,12 @@
 {
-  "name": "apps",
+  "name": "plataform",
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "next dev",
-    "build": "next build",
-    "start": "next start",
-    "lint": "next lint"
+    "web:application": "yarn workspace web dev",
+    "web:build": "yarn workspace web build",
+    "web:start": "yarn workspace web start",
+    "web:lint": "yarn workspace web lint"
   },
   "dependencies": {
     "@emotion/cache": "^11.10.3",
@@ -20,6 +20,11 @@
     "next": "12.2.5",
     "react": "18.2.0",
     "react-dom": "18.2.0"
+  },
+  "workspaces": {
+    "packages": [
+      "apps/*"
+    ]
   },
   "devDependencies": {
     "@types/node": "18.7.13",
