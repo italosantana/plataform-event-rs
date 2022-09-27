@@ -1,4 +1,4 @@
-#ROADMAP
+
 
 - [ ] Login/Register to have acess
 - [ ] with login you can check new alls events
