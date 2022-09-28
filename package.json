@@ -6,7 +6,8 @@
     "web:application": "yarn workspace web dev",
     "web:build": "yarn workspace web build",
     "web:start": "yarn workspace web start",
-    "web:lint": "yarn workspace web lint"
+    "web:lint": "yarn workspace web lint",
+    "web:test": "yarn workspace web test"
   },
   "dependencies": {
     "@emotion/cache": "^11.10.3",
