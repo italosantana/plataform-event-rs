@@ -11,5 +11,21 @@
     "koa-bodyparser": "^4.3.0",
     "koa-graphql": "^0.12.0",
     "koa-router": "^12.0.0"
+  },
+  "scripts": {
+    "start": "webpack --watch --progress --config webpack.config.js",
+    "jest": "jest",
+    "build": "rm -rf dist/* && babel src --extensions \".es6,.js,.es,.jsx,.mjs,.ts,.tsx\" --ignore *.spec.js --out-dir dist --copy-files --source-maps --verbose",
+    "schema": "yarn build webpackx.ts ./scripts/updateSchema.ts",
+    "seed": "yarn build webpackx.ts ./scripts/createSeedEvent.ts",
+    "test": "jest --coverage"
+  },
+  "devDependencies": {
+    "reload-server-webpack-plugin": "^1.0.1",
+    "webpack": "^5.74.0",
+    "webpack-cli": "^4.10.0",
+    "webpack-dev-server": "^4.11.1",
+    "webpack-merge": "^5.8.0",
+    "webpack-node-externals": "^3.0.0"
   }
 }
