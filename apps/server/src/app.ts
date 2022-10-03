@@ -1,13 +1,13 @@
+import 'isomorphic-fetch';
 import Koa, { Request } from 'koa';
-import Router from '@koa/router';
-import bodyparser from 'koa-bodyparser';
+import Router from 'koa-router';
+import cors from 'kcors';
 import { graphqlHTTP, OptionsData } from 'koa-graphql';
-import cors from '@koa/cors';
-
+import bodyParser from 'koa-bodyparser';
 import { schema } from '../src/modules/schema/schema';
-import { config } from './config';
-import { getUser } from './auth';
 import { getContext } from './getContext';
+import { getUser } from './auth';
+import { config } from './config';
 
 const app = new Koa();
 const router = new Router();
@@ -25,7 +25,9 @@ const graphQlSettingsPerReq = async (req: Request): Promise<OptionsData> => {
                 : false,
         schema,
         pretty: true,
-        user,
+        context: getContext({
+            user,
+        }),
         customFormatErrorFn: ({ message, locations, stack }) => {
             /* eslint-disable no-console */
             console.log(message);
@@ -46,7 +48,7 @@ const graphQlServer = graphqlHTTP(graphQlSettingsPerReq);
 router.all('/graphql', graphQlServer);
 
 app.use(cors());
-app.use(bodyparser());
+app.use(bodyParser());
 app.use(router.routes()).use(router.allowedMethods());
 
 export default app;

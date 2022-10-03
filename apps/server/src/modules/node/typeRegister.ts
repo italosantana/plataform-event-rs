@@ -1,8 +1,8 @@
-import { GraphQLObjectType } from "graphql";
+import { GraphQLObjectType } from 'graphql';
 
-import { fromGlobalId, nodeDefinitions } from "graphql-relay";
+import { fromGlobalId, nodeDefinitions } from 'graphql-relay';
 
-import { GraphQLContext } from "../graphql/types";
+import { GraphQLContext } from '../graphql/types';
 
 type Load = (context: GraphQLContext, id: string) => any;
 type TypeLoaders = {
@@ -27,7 +27,7 @@ const getTypeRegister = () => {
   };
 
   const { nodeField, nodesField, nodeInterface } = nodeDefinitions(
-    //@ts-ignore
+    // @ts-ignore
     (globalId, context: GraphQLContext) => {
       const { type, id } = fromGlobalId(globalId);
 
@@ -35,12 +35,12 @@ const getTypeRegister = () => {
 
       return (load && load(context, id)) || null;
     },
-    //@ts-ignore
-    (obj) => {
+    // @ts-ignore
+    obj => {
       const { type } = typesLoaders[obj.constructor.name] || { type: null };
 
       return type;
-    }
+    },
   );
 
   return {
@@ -52,7 +52,6 @@ const getTypeRegister = () => {
   };
 };
 
-const { registerTypeLoader, nodeInterface, nodeField, nodesField } =
-  getTypeRegister();
+const { registerTypeLoader, nodeInterface, nodeField, nodesField } = getTypeRegister();
 
 export { registerTypeLoader, nodeInterface, nodeField, nodesField };

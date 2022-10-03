@@ -24,7 +24,6 @@ type Query {
     """Returns the last n items from the list."""
     last: Int
   ): User
-  sponsoring(_id: String): User
 }
 
 """An object with an ID"""
@@ -40,4 +39,18 @@ type User implements Node {
   password: String!
 }
 
-type Mutation
+type Mutation {
+  userRegisterMutation(input: UserRegisterInput!): UserRegisterPayload
+}
+
+type UserRegisterPayload {
+  token: String
+  me: User
+  clientMutationId: String
+}
+
+input UserRegisterInput {
+  email: String!
+  password: String!
+  clientMutationId: String
+}

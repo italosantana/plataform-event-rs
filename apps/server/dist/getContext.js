@@ -17,7 +17,7 @@ const getContext = /*#__PURE__*/function () {
     return {
       req: ctx.req,
       dataloaders,
-      website: ctx.website
+      user: ctx.user
     };
   });
 

@@ -1,5 +1,6 @@
 import { GraphQLString, GraphQLNonNull } from 'graphql';
 import { mutationWithClientMutationId } from 'graphql-relay';
+import { generateJwtToken } from '../../../auth';
 
 import { UserModel } from '../UserModel';
 import { UserType } from '../UserType';
@@ -26,16 +27,23 @@ export default mutationWithClientMutationId({
 
         await user.save();
 
+        const token = generateJwtToken(user._id);
+
 
         return {
+            token,
             id: user._id,
             sucess: 'Success!',
         };
     },
     outputFields: {
+        token: {
+            type: GraphQLString,
+            resolve: ({ token }) => token,
+        },
         me: {
             type: UserType,
-            resolve: async ({ id }) => await UserModel.findById(id),
+            resolve: async ({ id }) => await UserModel.findOne({ _id: id }),
         },
     },
 });

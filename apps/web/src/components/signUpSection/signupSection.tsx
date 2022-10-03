@@ -1,9 +1,13 @@
 import { Box, Input, TextField, Typography } from "@mui/material"
 import theme from "../../../styles/theme"
 import { GreenButton } from "./Button/Button"
+import { useMutation } from 'react-relay';
+import { UserRegister } from "../../modules/user/UserRegisterMutation";
 
 
 export const SignUpSection = () => {
+    const [UserRegisterMutation] = useMutation<any>(UserRegister);
+
     return (
         <Box
             sx={{

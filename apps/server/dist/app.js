@@ -5,23 +5,25 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports.default = void 0;
 
+require("isomorphic-fetch");
+
 var _koa = _interopRequireDefault(require("koa"));
 
-var _router = _interopRequireDefault(require("@koa/router"));
+var _koaRouter = _interopRequireDefault(require("koa-router"));
 
-var _koaBodyparser = _interopRequireDefault(require("koa-bodyparser"));
+var _kcors = _interopRequireDefault(require("kcors"));
 
 var _koaGraphql = require("koa-graphql");
 
-var _cors = _interopRequireDefault(require("@koa/cors"));
+var _koaBodyparser = _interopRequireDefault(require("koa-bodyparser"));
 
 var _schema = require("../src/modules/schema/schema");
 
-var _config = require("./config");
+var _getContext = require("./getContext");
 
 var _auth = require("./auth");
 
-var _getContext = require("./getContext");
+var _config = require("./config");
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -30,7 +32,7 @@ function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try
 function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
 
 const app = new _koa.default();
-const router = new _router.default();
+const router = new _koaRouter.default();
 
 const graphQlSettingsPerReq = /*#__PURE__*/function () {
   var _ref = _asyncToGenerator(function* (req) {
@@ -72,7 +74,7 @@ const graphQlSettingsPerReq = /*#__PURE__*/function () {
 
 const graphQlServer = (0, _koaGraphql.graphqlHTTP)(graphQlSettingsPerReq);
 router.all('/graphql', graphQlServer);
-app.use((0, _cors.default)());
+app.use((0, _kcors.default)());
 app.use((0, _koaBodyparser.default)());
 app.use(router.routes()).use(router.allowedMethods());
 var _default = app;

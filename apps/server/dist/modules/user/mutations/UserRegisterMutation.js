@@ -9,6 +9,8 @@ var _graphql = require("graphql");
 
 var _graphqlRelay = require("graphql-relay");
 
+var _auth = require("../../../auth");
+
 var _UserModel = require("../UserModel");
 
 var _UserType = require("../UserType");
@@ -46,6 +48,7 @@ var _default = (0, _graphqlRelay.mutationWithClientMutationId)({
       } = _ref,
           rest = _objectWithoutProperties(_ref, _excluded);
 
+      console.log(...rest);
       const hasUser = (yield _UserModel.UserModel.countDocuments({
         email: email.trim()
       })) > 0;
@@ -58,7 +61,9 @@ var _default = (0, _graphqlRelay.mutationWithClientMutationId)({
         email
       }));
       yield user.save();
+      const token = (0, _auth.generateJwtToken)(user._id);
       return {
+        token,
         id: user._id,
         sucess: 'Success!'
       };
@@ -69,13 +74,21 @@ var _default = (0, _graphqlRelay.mutationWithClientMutationId)({
     };
   }(),
   outputFields: {
+    token: {
+      type: _graphql.GraphQLString,
+      resolve: ({
+        token
+      }) => token
+    },
     me: {
       type: _UserType.UserType,
       resolve: function () {
         var _ref3 = _asyncToGenerator(function* ({
           id
         }) {
-          return yield _UserModel.UserModel.findById(id);
+          return yield _UserModel.UserModel.findById({
+            _id: id
+          });
         });
 
         return function resolve(_x2) {

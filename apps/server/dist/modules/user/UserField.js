@@ -5,10 +5,6 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports.userTypeField = exports.userEdgeField = exports.userConnectionField = void 0;
 
-var _graphql = require("graphql");
-
-var _mongoose = require("mongoose");
-
 var _graphqlRelay = require("graphql-relay");
 
 var _edgeField = require("../graphql/edgeField");
@@ -16,8 +12,6 @@ var _edgeField = require("../graphql/edgeField");
 var UserLoader = _interopRequireWildcard(require("./UserLoader"));
 
 var _UserType = require("./UserType");
-
-var _UserModel = require("./UserModel");
 
 function _getRequireWildcardCache(nodeInterop) { if (typeof WeakMap !== "function") return null; var cacheBabelInterop = new WeakMap(); var cacheNodeInterop = new WeakMap(); return (_getRequireWildcardCache = function (nodeInterop) { return nodeInterop ? cacheNodeInterop : cacheBabelInterop; })(nodeInterop); }
 
@@ -66,35 +60,6 @@ const userConnectionField = () => ({
 
       return UserLoader.load(context, (_context$user = context.user) === null || _context$user === void 0 ? void 0 : _context$user._id);
     }
-  },
-  sponsoring: {
-    type: _UserType.UserType,
-    args: {
-      _id: {
-        type: _graphql.GraphQLString
-      }
-    },
-    resolve: function () {
-      var _ref2 = _asyncToGenerator(function* (_, args, context) {
-        const isValid = _mongoose.Types.ObjectId.isValid(args._id);
-
-        if (isValid) {
-          return UserLoader.load(context, args._id);
-        }
-
-        const user = yield _UserModel.UserModel.findOne({
-          username: args._id
-        }, {
-          _id: 1
-        });
-        if (!user) return null;
-        return UserLoader.load(context, user._id);
-      });
-
-      return function resolve(_x4, _x5, _x6) {
-        return _ref2.apply(this, arguments);
-      };
-    }()
   }
 });
 

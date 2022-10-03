@@ -33,7 +33,8 @@ const UserSchema = new _mongoose.Schema({
   timestamps: {
     createdAt: true,
     updatedAt: true
-  }
+  },
+  collection: 'User'
 });
 UserSchema.pre('save', /*#__PURE__*/function () {
   var _ref = _asyncToGenerator(function* (next) {

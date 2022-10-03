@@ -2,7 +2,6 @@ import mongoose, { Schema, Document } from 'mongoose';
 import bcrypt from 'bcryptjs';
 
 export interface User {
-    name: string;
     email: string;
     password: string;
 }
@@ -28,6 +27,7 @@ const UserSchema = new Schema(
             createdAt: true,
             updatedAt: true,
         },
+        collection: 'User',
     },
 );
 

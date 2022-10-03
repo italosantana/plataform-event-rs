@@ -19,7 +19,6 @@ export const UserType = new GraphQLObjectType<User>({
             type: new GraphQLNonNull(GraphQLString),
             resolve: user => user.password,
         },
-
     }),
     interfaces: () => [nodeInterface],
 });

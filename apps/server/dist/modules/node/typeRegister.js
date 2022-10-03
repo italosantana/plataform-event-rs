@@ -24,7 +24,7 @@ const getTypeRegister = () => {
     nodeField,
     nodesField,
     nodeInterface
-  } = (0, _graphqlRelay.nodeDefinitions)( //@ts-ignore
+  } = (0, _graphqlRelay.nodeDefinitions)( // @ts-ignore
   (globalId, context) => {
     const {
       type,
@@ -36,7 +36,7 @@ const getTypeRegister = () => {
       load: null
     };
     return load && load(context, id) || null;
-  }, //@ts-ignore
+  }, // @ts-ignore
   obj => {
     const {
       type
