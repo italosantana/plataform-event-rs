@@ -1,7 +1,7 @@
-import { GraphQLObjectType, GraphQLNonNull } from "graphql";
+import { GraphQLObjectType } from "graphql";
 
-import { nodesField, nodeField } from "../modules/node/typeRegister";
-import { websiteConnectionField } from "../modules/website/WebsiteField";
+import { nodesField, nodeField } from "../node/typeRegister";
+import { userConnectionField } from "../user/UserField";
 
 const QueryType = new GraphQLObjectType({
   name: "Query",
@@ -9,7 +9,7 @@ const QueryType = new GraphQLObjectType({
   fields: () => ({
     node: nodeField,
     nodes: nodesField,
-    ...websiteConnectionField(),
+    ...userConnectionField(),
   }),
 });
 
