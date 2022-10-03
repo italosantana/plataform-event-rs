@@ -1,11 +1,11 @@
 import { Request } from "koa";
 
-import { IWeb } from "./modules/website/WebsiteModel";
+import { User } from "./modules/user/UserModel";
 import { getDataloaders } from "./modules/loader/loaderRegister";
 import { GraphQLContext } from "./modules/graphql/types";
 
 type ContextVars = {
-    website?: IWeb | null;
+    website?: User | null;
     req?: Request;
 };
 

@@ -1,4 +1,4 @@
-import mongoose, { Schema, Document, Types } from 'mongoose';
+import mongoose, { Schema, Document } from 'mongoose';
 import bcrypt from 'bcryptjs';
 
 export interface User {
@@ -11,8 +11,6 @@ export interface UserDocument extends User, Document {
     hashPassword(password: string): Promise<string>;
 }
 
-// TODO: For some reason, I can't pass User interface to generic Schema type
-// we should verify why and fix it
 const UserSchema = new Schema(
     {
         name: {
