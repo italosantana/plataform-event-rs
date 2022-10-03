@@ -13,6 +13,6 @@ dotenvSafe.config({
 export const config = {
     PORT: process.env.PORT || 7500,
     NODE_ENV: process.env.NODE_ENV,
-    MONGO_URI: process.env.MONGO_URI,
+    MONGO_URI: process.env.MONGO_URI || "mongodb://localhost/plataform-back",
     JWT_SECRET: process.env.JWT_SECRET
 };
