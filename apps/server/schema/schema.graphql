@@ -36,7 +36,6 @@ interface Node {
 type User implements Node {
   """The ID of an object"""
   id: ID!
-  name: String!
   email: String!
   password: String!
 }

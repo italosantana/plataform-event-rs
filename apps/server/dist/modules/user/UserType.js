@@ -17,10 +17,6 @@ const UserType = new _graphql.GraphQLObjectType({
   name: 'User',
   fields: () => ({
     id: (0, _graphqlRelay.globalIdField)('User'),
-    name: {
-      type: new _graphql.GraphQLNonNull(_graphql.GraphQLString),
-      resolve: user => user.name
-    },
     email: {
       type: new _graphql.GraphQLNonNull(_graphql.GraphQLString),
       resolve: user => user.email

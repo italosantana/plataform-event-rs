@@ -1,4 +1,4 @@
-import userRegisterMutation from './userRegisterMutation';
+import userRegisterMutation from './UserRegisterMutation';
 
 
 export default {

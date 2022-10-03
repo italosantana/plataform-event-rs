@@ -5,12 +5,12 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports.default = void 0;
 
-var _userRegisterMutation = _interopRequireDefault(require("./userRegisterMutation"));
+var _UserRegisterMutation = _interopRequireDefault(require("./UserRegisterMutation"));
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 var _default = {
-  userRegisterMutation: _userRegisterMutation.default
+  userRegisterMutation: _UserRegisterMutation.default
 };
 exports.default = _default;
 //# sourceMappingURL=index.js.map

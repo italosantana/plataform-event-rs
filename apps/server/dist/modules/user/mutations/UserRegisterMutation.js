@@ -87,4 +87,4 @@ var _default = (0, _graphqlRelay.mutationWithClientMutationId)({
 });
 
 exports.default = _default;
-//# sourceMappingURL=userRegisterMutation.js.map
+//# sourceMappingURL=UserRegisterMutation.js.map
