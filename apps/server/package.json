@@ -5,6 +5,7 @@
   "license": "MIT",
   "dependencies": {
     "@koa/cors": "^3.4.1",
+    "dotenv-safe": "^8.2.0",
     "graphql": "^16.6.0",
     "jsonwebtoken": "^8.5.1",
     "koa": "^2.13.4",
@@ -21,6 +22,7 @@
     "test": "jest --coverage"
   },
   "devDependencies": {
+    "@types/dotenv-safe": "^8.1.2",
     "reload-server-webpack-plugin": "^1.0.1",
     "webpack": "^5.74.0",
     "webpack-cli": "^4.10.0",
