@@ -6,6 +6,7 @@
   "dependencies": {
     "@koa/cors": "^3.4.1",
     "@types/koa-bodyparser": "^4.3.8",
+    "bcryptjs": "^2.4.3",
     "dotenv-safe": "^8.2.0",
     "graphql": "^16.6.0",
     "jsonwebtoken": "^8.5.1",
