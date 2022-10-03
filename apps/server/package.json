@@ -1,0 +1,49 @@
+{
+  "name": "server",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "dependencies": {
+    "@entria/graphql-mongo-helpers": "^1.1.2",
+    "@entria/graphql-mongoose-loader": "^4.4.0",
+    "@koa/cors": "^3.4.1",
+    "@types/koa-bodyparser": "^4.3.8",
+    "bcryptjs": "^2.4.3",
+    "dataloader": "^2.1.0",
+    "dotenv-safe": "^8.2.0",
+    "graphql": "^16.6.0",
+    "graphql-playground-middleware-koa": "^1.6.22",
+    "graphql-relay": "^0.10.0",
+    "graphql-relay-subscription": "^1.0.0",
+    "jsonwebtoken": "^8.5.1",
+    "koa": "^2.13.4",
+    "koa-bodyparser": "^4.3.0",
+    "koa-graphql": "^0.12.0",
+    "koa-router": "^12.0.0",
+    "mongoose": "^6.6.4"
+  },
+  "scripts": {
+    "start": "webpack --watch --progress --config webpack.config.js",
+    "jest": "jest",
+    "build": "rm -rf dist/* && babel src --extensions \".es6,.js,.es,.jsx,.mjs,.ts,.tsx\" --ignore *.spec.js --out-dir dist --copy-files --source-maps --verbose",
+    "schema": "yarn build webpackx.ts ./scripts/updateSchema.ts",
+    "seed": "yarn build webpackx.ts ./scripts/createSeedEvent.ts",
+    "test": "jest --coverage"
+  },
+  "devDependencies": {
+    "@types/bcryptjs": "^2.4.2",
+    "@types/dotenv-safe": "^8.1.2",
+    "@types/koa": "^2.13.5",
+    "@types/koa__cors": "^3.3.0",
+    "@types/koa-cors": "^0.0.2",
+    "@types/koa-graphql": "^0.8.7",
+    "@types/koa-router": "^7.4.4",
+    "babel-loader": "^8.2.5",
+    "reload-server-webpack-plugin": "^1.0.1",
+    "webpack": "^5.74.0",
+    "webpack-cli": "^4.10.0",
+    "webpack-dev-server": "^4.11.1",
+    "webpack-merge": "^5.8.0",
+    "webpack-node-externals": "^3.0.0"
+  }
+}
