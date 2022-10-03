@@ -1,0 +1,1 @@
+{"version":3,"file":"index.js","names":["userRegisterMutation"],"sources":["../../../../src/modules/user/mutations/index.ts"],"sourcesContent":["import userRegisterMutation from './userRegisterMutation';\n\n\nexport default {\n    userRegisterMutation\n}"],"mappings":";;;;;;;AAAA;;;;eAGe;EACXA,oBAAoB,EAApBA;AADW,C"}
