@@ -4,9 +4,9 @@ import bodyparser from 'koa-bodyparser';
 import { graphqlHTTP, OptionsData } from 'koa-graphql';
 import cors from '@koa/cors';
 
-import { schema } from './src/schema/schema';
-import { config } from './environment';
-import { getUser } from './auth.ts';
+import { schema } from './schema/schema';
+import { config } from './config';
+import { getUser } from './auth';
 import { getContext } from './getContext';
 
 const app = new Koa();

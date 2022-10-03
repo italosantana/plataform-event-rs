@@ -1,4 +1,3 @@
-
 import dotenvSafe from "dotenv-safe";
 import path from "path";
 
@@ -12,7 +11,8 @@ dotenvSafe.config({
 });
 
 export const config = {
-    PORT: process.env.PORT || 6000,
+    PORT: process.env.PORT || 7500,
     NODE_ENV: process.env.NODE_ENV,
     MONGO_URI: process.env.MONGO_URI,
+    JWT_SECRET: process.env.JWT_SECRET
 };
