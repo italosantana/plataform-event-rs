@@ -1,11 +1,11 @@
-import { Request } from "koa";
+import { Request } from 'koa';
 
-import { User } from "./modules/user/UserModel";
-import { getDataloaders } from "./modules/loader/loaderRegister";
-import { GraphQLContext } from "./modules/graphql/types";
+import { UserDocument } from './modules/user/UserModel';
+import { getDataloaders } from './modules/loader/loaderRegister';
+import { GraphQLContext } from './modules/graphql/types';
 
 type ContextVars = {
-    website?: User | null;
+    user?: UserDocument;
     req?: Request;
 };
 
@@ -15,6 +15,6 @@ export const getContext = async (ctx: ContextVars) => {
     return {
         req: ctx.req,
         dataloaders,
-        website: ctx.website,
+        user: ctx.user,
     } as GraphQLContext;
 };

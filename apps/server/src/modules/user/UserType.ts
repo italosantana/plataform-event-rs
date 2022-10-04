@@ -11,10 +11,6 @@ export const UserType = new GraphQLObjectType<User>({
     name: 'User',
     fields: () => ({
         id: globalIdField('User'),
-        name: {
-            type: new GraphQLNonNull(GraphQLString),
-            resolve: user => user.name,
-        },
         email: {
             type: new GraphQLNonNull(GraphQLString),
             resolve: user => user.email,
@@ -23,7 +19,6 @@ export const UserType = new GraphQLObjectType<User>({
             type: new GraphQLNonNull(GraphQLString),
             resolve: user => user.password,
         },
-
     }),
     interfaces: () => [nodeInterface],
 });

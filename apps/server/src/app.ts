@@ -1,61 +1,54 @@
-import { getDataloaders } from './modules/loader/loaderRegister';
-
-import Koa from 'koa';
-import GraphQLHTTP from 'koa-graphql';
+import 'isomorphic-fetch';
+import Koa, { Request } from 'koa';
 import Router from 'koa-router';
-import cors from '@koa/cors';
+import cors from 'kcors';
+import { graphqlHTTP, OptionsData } from 'koa-graphql';
 import bodyParser from 'koa-bodyparser';
-
-import { schema } from './modules/schema/schema';
-
-import koaPlayground from 'graphql-playground-middleware-koa';
+import { schema } from '../src/modules/schema/schema';
+import { getContext } from './getContext';
+import { getUser } from './auth';
+import { config } from './config';
 
 const app = new Koa();
 const router = new Router();
 
-const graphqlSettingsPerReq = async (req, ctx, koaContext) => {
-    const { event } = koaContext;
-    const dataloaders = getDataloaders();
+const graphQlSettingsPerReq = async (req: Request): Promise<OptionsData> => {
+    const user = await getUser(req.header.authorization);
 
     return {
-        graphiql: true,
+        graphiql:
+            config.NODE_ENV !== 'production'
+                ? {
+                    headerEditorEnabled: true,
+                    shouldPersistHeaders: true,
+                }
+                : false,
         schema,
-        context: {
-            event,
-            req,
-            dataloaders,
-        },
-        formatError: error => {
-            console.log(error.message);
-            console.log(error.locations);
-            console.log(error.stack);
+        pretty: true,
+        context: getContext({
+            user,
+        }),
+        customFormatErrorFn: ({ message, locations, stack }) => {
+            /* eslint-disable no-console */
+            console.log(message);
+            console.log(locations);
+            console.log(stack);
+            /* eslint-enable no-console */
 
             return {
-                message: error.message,
-                locations: error.locations,
-                stack: error.stack,
+                message,
+                locations,
+                stack,
             };
         },
     };
 };
 
-const graphqlServer = GraphQLHTTP(graphqlSettingsPerReq);
+const graphQlServer = graphqlHTTP(graphQlSettingsPerReq);
+router.all('/graphql', graphQlServer);
 
-router.get('/', async ctx => {
-    ctx.body = 'Ok';
-});
-
-router.all('/graphql', graphqlServer);
-
-router.all(
-    '/playground',
-    koaPlayground({
-        endpoint: '/graphql',
-    }),
-);
-
-app.use(bodyParser());
 app.use(cors());
+app.use(bodyParser());
 app.use(router.routes()).use(router.allowedMethods());
 
 export default app;
